@@ -10,8 +10,9 @@ description: Use browser automation (Selenium/Playwright/OpenClaw browser) to op
 1. Preferred: use OpenClaw `browser` tool on `https://creator.douyin.com` for reliable UI automation in-session.
 2. Fallback: run `python3 run_day0_ops.py` (Selenium) or `python3 douyin_playwright.py` when local script execution is needed.
 3. If login/captcha appears, complete it manually once (QR/SMS/slide), then continue automation.
-4. Publish article first, then run comment-reply pass from creator comment-management.
-5. After each run, append selector changes / failures / successful patterns into this skill.
+4. Before publishing, prepare a background image pool (topic-matched, clean composition, portrait/cover-friendly).
+5. Publish article first, then run comment-reply pass from creator comment-management.
+6. After each run, append selector changes / failures / successful patterns into this skill.
 
 ## Files
 
