@@ -627,10 +627,14 @@ class DouyinBot:
 
         lower = text.lower()
 
-        # Avoid risky or commercial guidance by default
-        blocked = ["vx", "微信", "加我", "私信", "带货", "合作报价", "引流"]
-        if any(k in lower for k in blocked):
-            return "感谢关注，欢迎在评论区交流使用体验～"
+        # Skip sensitive/security-related topics entirely (do not reply)
+        sensitive = [
+            "密码", "验证码", "手机", "手机号", "身份证", "银行卡", "住址", "邮箱",
+            "token", "api key", "密钥", "ssh", "cookie", "私钥", "提示词", "越狱", "绕过",
+            "微信", "vx", "加我", "私信", "引流", "带货", "合作报价"
+        ]
+        if any(k in lower for k in sensitive):
+            return None
 
         question_keys = ["?", "？", "怎么", "如何", "哪里", "可以吗", "教程", "步骤"]
         support_keys = ["好", "厉害", "喜欢", "支持", "加油", "牛", "赞"]

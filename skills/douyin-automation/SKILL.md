@@ -48,6 +48,7 @@ description: Use browser automation (Selenium/Playwright/OpenClaw browser) to op
 5. Risk guardrails:
    - 不引导加私信/微信
    - 不发送营销导流话术
+   - 命中敏感/安全关键词（密码、验证码、联系方式、密钥、越狱/绕过等）直接跳过不回复
    - 每轮最多回复20条，间隔随机
 6. Log summary: replied count + skipped reasons + failed UI operations.
 
