@@ -127,9 +127,12 @@ export DOUYIN_HEADLESS=false
 ### 2026-03-08 (Day 2)
 - ✅ Connected OpenClaw browser automation to creator portal
 - ✅ Verified Day 0 title/content template is ready
+- ✅ Completed login and published multiple Day0/Day1-style articles via creator backend
+- ✅ Fixed workflow to explicitly select music before publishing
 - ⚠️ Selenium startup unstable on this host (`Service Unavailable`)
 - ✅ Added Selenium fallback logic and documented Playwright/browser-tool-first strategy
-- 🔄 Next: complete one-time QR login, then execute publish + comment reply workflow
+- ✅ Added auto-comment-reply v1 runbook (intent classification + delay/rate cap)
+- 🔄 Next: implement stable comment-management parser + one-click auto reply executor
 
 ## Contributing
 

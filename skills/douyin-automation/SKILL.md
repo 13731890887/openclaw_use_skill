@@ -33,3 +33,17 @@ description: Use browser automation (Selenium/Playwright/OpenClaw browser) to op
 - Expect selector drift; keep multiple fallback selectors per action.
 - On this host (Chrome 145), Selenium may throw `WebDriverException: Service Unavailable`; keep Playwright/OpenClaw browser automation as primary fallback.
 - For article publishing, `AI生成/AI换图` can auto-create head image and sync cover when local file upload is constrained.
+- **Preflight checklist before publish**: 标题已填 → 摘要已填 → 正文已填 → 头图/封面可预览 → 配乐已选（页面显示曲名）→ 再点击发布。
+- In this UI, `type` is more reliable than bulk `fill` for title/summary. Opening music modal may reset unsaved-looking fields, so verify again after closing modal.
+
+## Next Feature: Auto Comment Reply (v1)
+
+1. Navigate to `https://creator.douyin.com/creator-micro/interaction/comment-management`.
+2. Scan latest comments and skip already-replied items.
+3. Classify comment intent:
+   - 提问类：给步骤/建议
+   - 支持类：感谢 + 轻引导关注
+   - 质疑类：礼貌澄清，避免争执
+4. Reply with short, human tone (8-40字), avoid repetitive templates.
+5. Apply random delay (3-12s) between replies; cap per run (e.g., 20).
+6. Log reply summary (count, failures, notable comments) back into this skill/README.
