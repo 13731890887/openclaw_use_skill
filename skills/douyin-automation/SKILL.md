@@ -47,3 +47,13 @@ description: Use browser automation (Selenium/Playwright/OpenClaw browser) to op
 4. Reply with short, human tone (8-40字), avoid repetitive templates.
 5. Apply random delay (3-12s) between replies; cap per run (e.g., 20).
 6. Log reply summary (count, failures, notable comments) back into this skill/README.
+
+## Speed Optimization SOP (v2)
+
+- 固定路径：直接从作品管理页进入“发布文章”页，减少首页跳转。
+- 固定动作顺序（不回退）：标题 → 摘要 → 正文 → AI图 → 配乐 → 发布。
+- 减少慢速输入：仅关键字段用 `type`，其余优先 `fill/evaluate`。
+- 统一配乐策略：默认优先推荐榜第1首，避免反复搜索。
+- 一次一篇，发布成功后立即开始下一篇，避免长时间停留导致状态漂移。
+- 每篇发布前只做3项快检：标题有值 / 头图已生成 / 配乐弹窗已选择并关闭。
+- 失败重试策略：单步骤最多2次，仍失败就刷新当前页继续，不做长链回滚。
