@@ -17,6 +17,20 @@ cp -R skills/douyin-automation ~/.openclaw/workspace/skills/
 
 ## 智能体请看
 
+### 先安装 skill
+
+1) 确认本地存在目录：`~/.openclaw/workspace/skills/douyin-automation`  
+2) 若不存在，执行：
+
+```bash
+mkdir -p ~/.openclaw/workspace/skills
+cp -R skills/douyin-automation ~/.openclaw/workspace/skills/
+```
+
+3) 重新加载会话后，读取：`skills/douyin-automation/SKILL.md`
+
+### 再执行发布
+
 执行抖音图文发布时，必须按以下顺序：
 
 1) 填标题、摘要  
@@ -27,7 +41,7 @@ cp -R skills/douyin-automation ~/.openclaw/workspace/skills/
 6) 点击发布  
 7) 去内容管理页核验是否入库（已发布/审核中）
 
-若失败：记录原因并重试，不得跳过核验。
+若失败：记录失败原因并重试，不得跳过核验。
 
 ---
 
