@@ -1,0 +1,54 @@
+2026-03-07 23:36:25,967 - INFO - 🦞 DouyinBot initialized
+2026-03-07 23:36:25,967 - INFO - ====== WebDriver manager ======
+2026-03-07 23:36:26,561 - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-07 23:36:28,968 - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-07 23:36:30,675 - INFO - Driver [/Users/openclaw_writer/.wdm/drivers/chromedriver/mac64/145.0.7632.117/chromedriver-mac-arm64/chromedriver] found in cache
+2026-03-07 23:41:08,398 - INFO - 🦞 DouyinBot (Playwright) initialized
+2026-03-07 23:41:13,833 - INFO - ✅ Browser setup complete
+2026-03-07 23:41:13,834 - INFO - 🔐 Navigating to Douyin...
+2026-03-07 23:41:43,946 - ERROR - ❌ Login failed: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.douyin.com/", waiting until "networkidle"
+
+2026-03-07 23:41:44,866 - INFO - 👋 Browser closed
+2026-03-07 23:42:05,899 - INFO - 🦞 DouyinBot (Playwright) initialized
+2026-03-07 23:42:09,230 - INFO - ✅ Browser setup complete
+2026-03-07 23:42:09,231 - INFO - 🔐 Navigating to Douyin...
+2026-03-08 00:28:54,140 - INFO - 🦞 DouyinBot (Playwright) initialized
+2026-03-08 00:28:58,491 - INFO - ✅ Browser setup complete
+2026-03-08 00:28:58,491 - INFO - 🔐 Navigating to Douyin...
+2026-03-08 00:38:49,222 - INFO - 🦞 DouyinBot (Playwright) initialized
+2026-03-08 00:38:53,010 - INFO - ✅ Browser setup complete
+2026-03-08 00:38:53,012 - INFO - 🔐 Navigating to Douyin...
+2026-03-08 00:40:33,892 - WARNING - ⚠️ Login may not have completed
+2026-03-08 00:40:35,291 - INFO - 👋 Browser closed
+2026-03-08 00:47:56,825 - INFO - 🦞 DouyinBot (Playwright) initialized
+2026-03-08 00:48:03,329 - INFO - ✅ Browser setup complete
+2026-03-08 00:48:03,330 - INFO - 🔐 Navigating to Douyin...
+2026-03-08 00:49:09,384 - WARNING - ⚠️ Login may not have completed
+2026-03-08 00:49:09,777 - INFO - 👋 Browser closed
+2026-03-08 00:53:34,783 - INFO - 🦞 DouyinBot initialized
+2026-03-08 00:53:34,790 - ERROR - ❌ Phone and password required for login
+2026-03-08 00:53:58,110 - INFO - 🦞 DouyinBot initialized
+2026-03-08 00:53:58,110 - INFO - ====== WebDriver manager ======
+2026-03-08 00:53:58,776 - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-08 00:54:00,700 - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-08 00:54:02,559 - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-08 00:54:07,110 - INFO - WebDriver version 145.0.7632.117 selected
+2026-03-08 00:54:07,113 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.117/mac-arm64/chromedriver-mac-arm64.zip
+2026-03-08 00:54:07,113 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.117/mac-arm64/chromedriver-mac-arm64.zip
+2026-03-08 00:54:08,906 - INFO - Driver downloading response is 200
+2026-03-08 00:54:13,606 - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-08 00:54:15,580 - INFO - Driver has been saved in cache [/Users/openclaw_writer/.wdm/drivers/chromedriver/mac64/145.0.7632.117]
+2026-03-08 01:01:17,190 - INFO - 🦞 DouyinBot initialized
+2026-03-08 01:01:17,190 - INFO - ====== WebDriver manager ======
+2026-03-08 01:01:17,288 - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-08 01:01:19,531 - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-08 01:01:21,409 - INFO - Driver [/Users/openclaw_writer/.wdm/drivers/chromedriver/mac64/145.0.7632.117/chromedriver-mac-arm64/chromedriver] found in cache
+2026-03-08 01:02:55,160 - INFO - 🦞 DouyinBot initialized
+2026-03-08 01:03:03,932 - WARNING - ⚠️ Selenium Manager failed, fallback to webdriver-manager: Message: Service Unavailable
+
+2026-03-08 01:03:03,933 - INFO - ====== WebDriver manager ======
+2026-03-08 01:03:04,040 - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-08 01:03:06,213 - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-08 01:03:08,865 - INFO - Driver [/Users/openclaw_writer/.wdm/drivers/chromedriver/mac64/145.0.7632.117/chromedriver-mac-arm64/chromedriver] found in cache
