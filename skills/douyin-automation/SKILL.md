@@ -31,3 +31,4 @@ description: Use browser automation (Selenium/Playwright/OpenClaw browser) to op
 - Use conservative operation frequency and randomized delays to lower risk.
 - Expect selector drift; keep multiple fallback selectors per action.
 - On this host (Chrome 145), Selenium may throw `WebDriverException: Service Unavailable`; keep Playwright/OpenClaw browser automation as primary fallback.
+- For article publishing, `AI生成/AI换图` can auto-create head image and sync cover when local file upload is constrained.
