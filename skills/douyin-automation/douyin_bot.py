@@ -619,6 +619,125 @@ class DouyinBot:
         logger.info(f"✅ Sent {sent} comment replies")
         return sent
 
+    def _generate_safe_reply(self, comment_text):
+        """Generate short, human-like, low-risk reply text (8-40 chars)."""
+        text = (comment_text or "").strip()
+        if not text:
+            return None
+
+        lower = text.lower()
+
+        # Avoid risky or commercial guidance by default
+        blocked = ["vx", "微信", "加我", "私信", "带货", "合作报价", "引流"]
+        if any(k in lower for k in blocked):
+            return "感谢关注，欢迎在评论区交流使用体验～"
+
+        question_keys = ["?", "？", "怎么", "如何", "哪里", "可以吗", "教程", "步骤"]
+        support_keys = ["好", "厉害", "喜欢", "支持", "加油", "牛", "赞"]
+        doubt_keys = ["假", "骗人", "不信", "吹", "没用", "扯"]
+
+        if any(k in text for k in question_keys):
+            pool = [
+                "可以，我后面补一条完整步骤版。",
+                "这个可以做，我会发实操细节。",
+                "你这个问题很好，下一条专门讲。",
+            ]
+        elif any(k in text for k in support_keys):
+            pool = [
+                "谢谢支持，我会持续更新实战进展！",
+                "感谢鼓励，后面继续分享干货。",
+                "收到！一起把自动化跑顺～",
+            ]
+        elif any(k in text for k in doubt_keys):
+            pool = [
+                "理解你的顾虑，我会继续放实测过程。",
+                "可以多看后续实测数据再判断～",
+                "欢迎理性讨论，我会持续公开复盘。",
+            ]
+        else:
+            pool = [
+                "感谢留言，我会持续更新实战内容。",
+                "收到，这块我后续会补充细节。",
+                "谢谢关注，欢迎继续交流。",
+            ]
+
+        reply = random.choice(pool)
+        return reply[:40]
+
+    def reply_comments_in_creator_v2(self, max_replies=20, min_delay=3, max_delay=12):
+        """
+        Enhanced comment auto-reply from creator comment-management page.
+
+        Features:
+        - intent-based safe reply generation
+        - skip duplicates in same run
+        - random delay between replies
+        - per-run cap to reduce risk
+        """
+        if not self.logged_in:
+            logger.error("❌ Not logged in")
+            return 0
+
+        self.driver.get(DOUYIN_COMMENT_MANAGE)
+        self.human_delay(3, 5)
+
+        sent = 0
+        seen_texts = set()
+
+        try:
+            items = self.driver.find_elements(By.XPATH, "//div[contains(@class,'comment') or contains(@class,'Comment')]")
+            logger.info(f"🔎 Found {len(items)} comment blocks")
+
+            for item in items:
+                if sent >= max_replies:
+                    break
+
+                raw = (item.text or "").strip()
+                if not raw or raw in seen_texts:
+                    continue
+                seen_texts.add(raw)
+
+                reply_text = self._generate_safe_reply(raw)
+                if not reply_text:
+                    continue
+
+                try:
+                    reply_btn = item.find_element(By.XPATH, ".//button[contains(text(),'回复')]")
+                    reply_btn.click()
+                    self.human_delay(0.8, 1.8)
+
+                    input_box = self._find_element([
+                        (By.XPATH, "//textarea[contains(@placeholder,'回复') or contains(@placeholder,'评论')]"),
+                        (By.CSS_SELECTOR, "textarea"),
+                    ], wait_time=6)
+                    if not input_box:
+                        continue
+
+                    input_box.clear()
+                    input_box.send_keys(reply_text)
+                    self.human_delay(0.8, 1.8)
+
+                    send_btn = self._find_element([
+                        (By.XPATH, "//button[contains(text(),'发送') or contains(text(),'回复')]"),
+                    ], wait_time=6)
+                    if not send_btn:
+                        continue
+
+                    send_btn.click()
+                    sent += 1
+                    logger.info(f"✅ Replied {sent}/{max_replies}: {reply_text}")
+                    self.human_delay(min_delay, max_delay)
+
+                except Exception as inner:
+                    logger.debug(f"Skip one comment due to UI issue: {inner}")
+                    continue
+
+        except Exception as e:
+            logger.error(f"❌ reply_comments_in_creator_v2 failed: {str(e)}")
+
+        logger.info(f"✅ V2 sent {sent} replies")
+        return sent
+
     def close(self):
         """Close the browser."""
         if self.driver:
