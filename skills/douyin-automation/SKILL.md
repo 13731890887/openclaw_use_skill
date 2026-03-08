@@ -58,6 +58,22 @@ description: Use browser automation (Selenium/Playwright/OpenClaw browser) to op
 - 每篇发布前只做3项快检：标题有值 / 头图已生成 / 配乐已选中（先将鼠标悬停在目标歌曲行，待右侧"使用"按钮出现后再点击；不是仅点歌曲行。优先"我本将心向明月"等热曲，并确认弹窗关闭后仍保留曲名）。
 - 失败重试策略：单步骤最多2次，仍失败就刷新当前页继续，不做长链回滚。
 
+## Verified Workflow Steps (2026-03-08)
+
+### Input Methods (实测有效)
+- 标题/摘要：`type` + `slowly:true` 最稳定
+- 正文：`evaluate` + `document.execCommand('insertText', false, text)`
+- AI图片：点击"AI配图"后等待 5-6 秒，确认"AI换图"和"编辑封面"出现
+
+### Publish Button Issue (待解决)
+- 现象：点击"发布"按钮后，页面停留在编辑页，作品未提交
+- 可能原因：按钮点击未触发提交 / 有隐藏校验未通过
+- 临时方案：多次点击发布按钮，或使用 `evaluate` 直接触发按钮的 click 事件
+
+### 成功判定标准
+- 发布成功：页面跳转到"内容管理"或出现"发布成功"提示
+- 作品管理页能看到新发布的文章
+
 ## Verified Music Selection Pattern (2026-03-08)
 
 - ✅ 已实测成功：**悬停歌曲行 → 右侧出现"使用"按钮 → 点击"使用" → 关闭弹窗后显示曲名 + 按钮变"修改音乐"**。
